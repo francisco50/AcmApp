@@ -7,10 +7,30 @@
     tools:context="com.egcoding.acmapp.MainActivity">
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="336dp"
+        android:layout_height="85dp"
+        android:text="This is Omer and I am from the Future!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Association for Computer Machinery"
-        android:gravity="center"/>
+        android:background="#913A3A"
+        android:text="Enter Now!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/LoginButton"
