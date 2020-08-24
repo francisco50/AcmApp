@@ -1,32 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:gravity="center"
+    android:background="@drawable/gradientdarkgray"
     tools:context="com.egcoding.acmapp.MainActivity">
 
+    <ImageView
+        android:id="@+id/whiteAcmLogo"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/acmwhitelogo" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <Button
+        android:id="@+id/loginmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/white_to_red_highlight"
+        android:text="@string/login"
+        android:textColor="@color/gray"
+        android:padding="10dp"
+        android:textSize="14sp" />
+
     <TextView
+        android:id="@+id/orText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Association for Computer Machinery"
-        android:gravity="center"/>
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:text="@string/don_t_have_account_click_register"
+        android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/LoginButton"
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:background="#4C66F8"
-        android:text="Login"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000" />
+        android:layout_marginTop="15dp"
+        android:background="@drawable/red_to_gray_highlight"
+        android:text="@string/register"
+        android:textSize="14sp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/RegisterButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:text="register" />
 
-</RelativeLayout>
+</LinearLayout>

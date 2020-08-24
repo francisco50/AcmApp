@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">AcmApp</string>
+    <string name="app_name"> ACM </string>
+    <string name="dashboardtab"> DashBoard </string>
+    <string name="logintab"> Login </string>
+    <string name="registertab"> Register </string>
+    <string name="association_for_computer_machinery">Association for Computer Machinery</string>
+    <string name="student_dashboard">Student Dashboard</string>
+    <string name="member_name">Member Name</string>
+    <string name="calendar">Calendar</string>
+    <string name="login">LOGIN</string>
+    <string name="don_t_have_account_click_register">Don\'t have account? Click Register</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="my_man_what_s_your_name">My man, what\'s your name</string>
+    <string name="progress">Please wait!</string>
+
+
 </resources>
