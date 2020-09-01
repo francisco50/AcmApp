@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="12dp"
+    android:padding="30dp"
     android:gravity="center"
     android:background="@drawable/gradientdarkgray"
     tools:context="com.egcoding.acmapp.MainActivity">
@@ -15,7 +15,7 @@
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/acmwhitelogo" />
 
     <EditText
@@ -34,7 +34,7 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:padding="10dp"
         android:background="@android:drawable/screen_background_light_transparent"
         android:hint="@string/password"
