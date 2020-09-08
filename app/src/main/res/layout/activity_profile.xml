@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientdarkgray"
+    tools:context=".ProfileActivity">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height= "250dp"
+        android:background="@color/yellow"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageview_profile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/leeadama"
+                android:layout_centerHorizontal="true"
+                android:elevation="1dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85dp"
+                    app:contentPaddingTop="15dp"
+                    app:contentPaddingLeft="15dp"
+                    app:contentPaddingRight="15dp"
+                    app:contentPaddingBottom="15dp"
+                    app:cardCornerRadius="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/NameText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Name"
+                            android:textStyle="bold"
+                            android:textSize="24sp"
+                            android:layout_marginTop="60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="@color/gray"/>
+
+                        <EditText
+                            android:id="@+id/studyingText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Area of study"
+                            android:textSize="16sp"
+                            android:textColorHint="@color/gray"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="@color/darkgray"/>
+
+                        <EditText
+                            android:id="@+id/bioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Tell us about yourself"
+                            android:textColorHint="@color/gray"
+                            android:textAlignment="center"
+                            android:textSize="14sp"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center_horizontal"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:orientation= "vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:scrollbarThumbHorizontal="@color/gray"
+                    android:scrollbarThumbVertical="@color/gray">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@android:color/transparent"
+                        android:text="Standing/Year"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:fontFamily="sans-serif-condensed-medium" />
+
+                    <EditText
+                        android:id="@+id/yearStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/textView2"
+                        android:layout_marginLeft="10dp"
+                        android:hint="....."
+                        android:padding="8dp"
+                        android:scrollbarThumbHorizontal="@color/white"
+                        android:scrollbarThumbVertical="@color/white"
+                        android:textColor="@color/white"
+                        android:textColorHighlight="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textCursorDrawable="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/skillText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/yearStatus"
+                        android:layout_marginLeft="10dp"
+                        android:background="@android:color/transparent"
+                        android:text="Skills"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:fontFamily="sans-serif-condensed-medium" />
+
+                    <EditText
+                        android:id="@+id/skillsStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/skillText"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:padding="8dp"
+                        android:hint="......"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/hobbiesText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/skillsStatus"
+                        android:layout_marginLeft="10dp"
+                        android:background="@android:color/transparent"
+                        android:text="Hobbies"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:fontFamily="sans-serif-condensed-medium" />
+
+
+                    <EditText
+                        android:id="@+id/hobbiesStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/hobbiesText"
+                        android:layout_marginLeft="10dp"
+                        android:padding="8dp"
+                        android:hint="......."
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/goalsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/hobbiesStatus"
+                        android:layout_marginLeft="10dp"
+                        android:background="@android:color/transparent"
+                        android:text="Goals"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:fontFamily="sans-serif-condensed-medium" />
+
+
+                    <EditText
+                        android:id="@+id/goalsStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/goalsText"
+                        android:layout_marginLeft="10dp"
+                        android:padding="8dp"
+                        android:hint="......."
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+                </ScrollView>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
