@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientdarkgray"
     tools:context="com.egcoding.acmapp.DashActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -34,132 +35,153 @@
         android:layout_margin="20dp"
         android:rowCount="3"
         android:columnCount="2">
-        
+
         <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
+            android:id="@+id/profileCard"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_row="0"
+            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_gravity="fill"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
+            android:layout_gravity="fill"
             android:layout_margin="8dp"
+            android:onClick="buttonProfileOnClick"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
-                
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/googleg_standard_color_18"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="HOME"
-                    android:textStyle="bold"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_gravity="fill"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
+                android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/googleg_standard_color_18"/>
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/ic_profile_icon" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="PROFILE"
-                    android:textStyle="bold"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="@color/darkgray"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
+            android:id="@+id/calenderCard"
             android:layout_width="wrap_content"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_gravity="fill"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/googleg_standard_color_18"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="WORKSHOP"
-                    android:textStyle="bold"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_row="1"
             android:layout_column="1"
-            android:layout_gravity="fill"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
+            android:layout_gravity="fill"
             android:layout_margin="8dp"
+            android:onClick="buttonCalenderOnClick"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
+                android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/googleg_standard_color_18"/>
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/ic_calender_icon" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CALENDER"
-                    android:textStyle="bold"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="@color/darkgray"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/labCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="8dp"
+            android:onClick="buttonLabsOnClick"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/ic_computer_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LABS"
+                    android:textAlignment="center"
+                    android:textColor="@color/darkgray"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/newsletterCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="8dp"
+            android:onClick="buttonNewsOnClick"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/ic_news_letter" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NEWS LETTER"
+                    android:textAlignment="center"
+                    android:textColor="@color/darkgray"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/podcastCard"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_row="2"
@@ -178,15 +200,17 @@
                 android:layout_gravity="center_vertical|center_horizontal">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/googleg_standard_color_18"/>
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/ic_baseline_mic_none_24"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NEWS"
-                    android:textStyle="bold"
-                    android:textAlignment="center" />
+                    android:text="PODCAST"
+                    android:textAlignment="center"
+                    android:textColor="@color/darkgray"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -209,15 +233,17 @@
                 android:layout_gravity="center_vertical|center_horizontal">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/googleg_standard_color_18"/>
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/ic_events_icon"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TUTORING"
-                    android:textStyle="bold"
-                    android:textAlignment="center" />
+                    android:text="EVENTS"
+                    android:textAlignment="center"
+                    android:textColor="@color/darkgray"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         
