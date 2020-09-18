@@ -25,9 +25,9 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageview_profile"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/leeadama"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/imageacm"
                 android:layout_centerHorizontal="true"
                 android:elevation="1dp"/>
 

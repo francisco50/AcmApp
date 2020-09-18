@@ -12,7 +12,7 @@ import android.view.View;
 
 
 public class DashActivity extends AppCompatActivity {
-    CardView profile, calender, labs, newsletter;
+    CardView profile, calender, labs, newsletter, podcast, events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,9 @@ public class DashActivity extends AppCompatActivity {
         calender = findViewById(R.id.calenderCard);
         labs = findViewById(R.id.labCard);
         newsletter = findViewById(R.id.newsletterCard);
+        podcast = findViewById(R.id.podcastCard);
+        events = findViewById(R.id.eventsCard);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
@@ -51,6 +54,16 @@ public class DashActivity extends AppCompatActivity {
 
     public void buttonNewsOnClick(View V) {
         Intent i = new Intent(getApplicationContext(), NewsLetterActivity.class);
+        startActivity(i);
+    }
+
+    public void buttonPodcastOnClick(View V) {
+        Intent i = new Intent(getApplicationContext(), PodcastActivity.class);
+        startActivity(i);
+    }
+
+    public void buttonEventsOnClick(View V) {
+        Intent i = new Intent(getApplicationContext(), EventsActivity.class);
         startActivity(i);
     }
 }

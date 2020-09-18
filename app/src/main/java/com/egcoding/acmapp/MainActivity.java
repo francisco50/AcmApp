@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText password;
     private Button login;
     private Button register;
-   // private TextView forgotPassword;
+    Button tempButton;
+    // private TextView forgotPassword;
 
     private FirebaseAuth auth;
     private ProgressDialog pd;
@@ -36,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
-        login=findViewById(R.id.loginmain);
-       // forgotPassword = findViewById(R.id.forgotPasswordLink);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.loginmain);
+        tempButton = findViewById(R.id.tempButton);
+        // forgotPassword = findViewById(R.id.forgotPasswordLink);
 
         //FEO introduced this code make the register button respond to clicks and open the register activity.
 
@@ -50,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String txt_email = email.getText().toString(); // grabbing the inputed email and converting to string variable
                 String txt_password = password.getText().toString();
-                    //here we are calling the method and passing through two string values.
-                loginUser(txt_email,txt_password);
+                //here we are calling the method and passing through two string values.
+                loginUser(txt_email, txt_password);
             }
         });
 
@@ -67,17 +69,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void loginUser(final String email, final String password)
-    {
-        auth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+    private void loginUser(final String email, final String password) {
+        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
 
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(MainActivity.this, "You have successfully logged into your account", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this,DashActivity.class));
+                startActivity(new Intent(MainActivity.this, DashActivity.class));
                 finish();
             }
         });
 
+    }
+
+    public void buttonTempOnClick(View V) {
+        Intent i = new Intent(getApplicationContext(), DashActivity.class);
+        startActivity(i);
     }
 }

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewsLetterActivity"></activity>
+        <activity android:name=".EventsActivity"></activity>
+        <activity android:name=".NewsLetterActivity" />
         <activity android:name=".PodcastActivity" />
         <activity android:name=".LabsActivity" />
         <activity android:name=".ProfileActivity" />

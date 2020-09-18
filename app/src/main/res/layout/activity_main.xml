@@ -106,5 +106,12 @@
         android:textStyle="bold"
         android:layout_marginTop="15dp"/>
 
+    <Button
+        android:id="@+id/tempButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="buttonTempOnClick"
+        android:text="Temp" />
+
 
 </LinearLayout>

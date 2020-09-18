@@ -10,5 +10,8 @@
     <color name="lightergray">#414143</color>
     <color name= "yellow">#ffdd0d</color>
     <color name= "darkyellow">#e2cb40</color>
-    <color name= "orange">#ff7c09</color>
+    <color name= "orange">#ffa509</color>
+    <color name= "smoke">#f0ecec</color>
+    <color name= "lighterred">#de1d34</color>
+    <color name= "darkred">#a40719</color>
 </resources>
