@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText password;
     private Button login;
     private Button register;
+   // private TextView forgotPassword;
 
     private FirebaseAuth auth;
     private ProgressDialog pd;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
         login=findViewById(R.id.loginmain);
+       // forgotPassword = findViewById(R.id.forgotPasswordLink);
 
         //FEO introduced this code make the register button respond to clicks and open the register activity.
 
