@@ -93,10 +93,10 @@ public class MainActivity extends AppCompatActivity {
         //Development version
         //Use https will cause error
         //String register_url = "http://10.0.2.2:3000/api/v1/register";
-        String login_url = "http://10.0.2.2:3000/api/v1/authenticate";
+        //String login_url = "http://10.0.2.2:3000/api/v1/authenticate";
         //Launch version
         //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/register";
-        //String login_url = "https://acm-app-backend.herokuapp.com/api/v1/authenticate";
+        String login_url = "https://acm-app-backend.herokuapp.com/api/v1/authenticate";
         //prepare data
         final JSONObject params = new JSONObject();
         try {
