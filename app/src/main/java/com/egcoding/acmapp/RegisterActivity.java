@@ -94,7 +94,8 @@ public class RegisterActivity extends AppCompatActivity {
                     if (status == "true") {
 
                         Toast.makeText(RegisterActivity.this, "User is created successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this, DashActivity.class));
+                        Intent intent = new Intent(RegisterActivity.this, PaymentActivity.class);
+                        startActivity(intent);
                         finish();
                     } else {
                         @NonNull final String error = response.getString("error");

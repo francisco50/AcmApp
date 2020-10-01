@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<button id="event1" type="button">
+    Buy Tickets 1
+</button>
+<button id="event2" type="button">
+    Buy Tickets 2
+</button>
+
+<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js">
+</script>
+
+<script type="text/javascript">
+  var exampleCallback = function() {
+    console.log("Order complete!");
+  };
+
+  window.EBWidgets.createWidget({
+    widgetType: "checkout",
+    eventId: "118963010567",
+    modal: true,
+    modalTriggerElementId: "event1",
+    onOrderComplete: exampleCallback
+  });
+  window.EBWidgets.createWidget({
+    widgetType: "checkout",
+    eventId: "31059486067",
+    modal: true,
+    modalTriggerElementId: "event2",
+    onOrderComplete: exampleCallback
+  });
+</script>
+
+</body>
+</html>
