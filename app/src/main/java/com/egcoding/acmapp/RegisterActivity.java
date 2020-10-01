@@ -83,6 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
             Log.e("REGISTER", "PARSE PARAMS ERROR");
             e.printStackTrace();
         }
+
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST,
                 register_url,
                 params, new Response.Listener<JSONObject>() {

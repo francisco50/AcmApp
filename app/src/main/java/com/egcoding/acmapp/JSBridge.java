@@ -19,7 +19,8 @@ public class JSBridge {
 
     @JavascriptInterface
     public void startRegister() {
-        Intent intent = new Intent(this.activity, RegisterActivity.class);
+
+        Intent intent = new Intent(this.activity, DashActivity.class);
         activity.startActivity(intent);
     }
 

@@ -17,6 +17,7 @@ public class PaymentActivity extends AppCompatActivity {
         WebSettings webSettings = paymentWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
+        paymentWebView.addJavascriptInterface(new JSBridge(this), "JSBridge");
         //paymentWebView.loadUrl("https://www.google.com/");
         String paymentPage = "file:///android_asset/paypal.html";
         paymentWebView.loadUrl(paymentPage);
