@@ -19,12 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Button register;//register button
    // private TextView forgotPassword;
 
-    private FirebaseAuth auth;//NOT NECESSARY
+
     private ProgressDialog pd;
 
     @Override
@@ -50,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
         login=findViewById(R.id.loginmain);// Retrieve widget with name of loginmain of activity_main xml file
        // forgotPassword = findViewById(R.id.forgotPasswordLink);
 
-        //FEO introduced this code make the register button respond to clicks and open the register activity.
 
 
-        auth = FirebaseAuth.getInstance();
+
+       // auth = FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() { // whenever login button is clicked
             @Override
             public void onClick(View view) {
@@ -77,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loginUser(String email, String password) {
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Loading");
+        pd.show();
         //        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this ,new OnCompleteListener<AuthResult>() {
         //            @Override
         //            public void onComplete(@NonNull Task<AuthResult> task) {
@@ -111,11 +109,15 @@ public class MainActivity extends AppCompatActivity {
                 params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+
                 try {
+
+
                     @NonNull final String status = response.getString("success");
                     Log.d("LOGIN", status);
-                    if (status == "true") {
+                    if (status.equals("true")) {
                         Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+
                         startActivity(new Intent(MainActivity.this, DashActivity.class));
                         finish();
                     } else {
@@ -138,6 +140,11 @@ public class MainActivity extends AppCompatActivity {
         Volley.newRequestQueue(MainActivity.this).add(jsonRequest);
     }//---end function---
 
+/*
+    public void dummyActivity(View view) {
+        Intent intent = new Intent(MainActivity.this, DashActivity.class);
+        startActivity(intent);
+    }
 
-
+ */
 }

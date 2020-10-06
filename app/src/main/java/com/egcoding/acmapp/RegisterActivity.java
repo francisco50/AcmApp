@@ -19,11 +19,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,8 +27,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button register;
+    private EditText study;
 
-    private FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +44,16 @@ public class RegisterActivity extends AppCompatActivity {
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        register = findViewById(R.id.register); // whenever the register button is clicked, must check if a valid value is inputed in email & password text field
-        auth = FirebaseAuth.getInstance();
+        register = findViewById(R.id.register);
 
-        // added firebase authentication to the application
+
+
+        // whenever the register button is clicked, must check if a valid value is inputed in email & password text field
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
@@ -71,21 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerUser(String email, String password) {
-//        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this ,new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                if(task.isSuccessful()){
-//                    Toast.makeText(RegisterActivity.this, "Registering user successful!", Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(RegisterActivity.this, DashActivity.class));
-//                    finish();
-//                } else{
-//                    Toast.makeText(RegisterActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-        //register with wordpress
-        //Development version
-        //Use https will cause error
+
         String register_url = "http://10.0.2.2:3000/api/v1/register";
         //Launch version
         //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/register";
@@ -107,6 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @NonNull final String status = response.getString("success");
                     Log.d("REGISTER", status);
                     if (status == "true") {
+
                         Toast.makeText(RegisterActivity.this, "User is created successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this, DashActivity.class));
                         finish();

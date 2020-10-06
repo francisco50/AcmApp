@@ -6,12 +6,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
-public class LabsActivity extends AppCompatActivity {
+public class EventsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_labs);
+        setContentView(R.layout.activity_events);
 
         //APPBAR OR TOOLBAR THAT DISPLAYS THE BACK BUTTON AND MORE ITEMS LIKE (SHARE BUTTON)
         Toolbar toolbar = findViewById(R.id.toolbar1);

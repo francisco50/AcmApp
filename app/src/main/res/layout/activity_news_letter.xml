@@ -1,9 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
     tools:context=".NewsLetterActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <RelativeLayout
+        android:id="@+id/acmRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.003">
+
+
+        <ImageView
+            android:id="@+id/imageview_profile"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/acmTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageview_profile"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="ACM NEWSLETTER"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/acmDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/acmTitleText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="ACM newsletter provides you with up-to-date information for ACM. Here you can track activities offered by the club and past events......"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation= "vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:scrollbarThumbHorizontal="@color/gray"
+            android:scrollbarThumbVertical="@color/gray">
+
+            <Button
+                android:id="@+id/firstEditionButton"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/white_to_red_highlight"
+                android:onClick="buttonFirstEditionOnClick"
+                android:text="ACM Newsletter- 1st Edition"
+                tools:layout_editor_absoluteX="162dp"
+                tools:layout_editor_absoluteY="165dp" />
+
+            <Button
+                android:id="@+id/secondEditionButton"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/firstEditionButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+
+                android:onClick="buttonSecondEditionOnClick"
+                android:text="ACM Newsletter- 2nd Edition"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/thirdEditionButton"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/secondEditionButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/white_to_red_highlight"
+                android:onClick="buttonThirdEditionOnClick"
+                android:text="ACM Newsletter- 3rd Edition" />
+
+            <Button
+                android:id="@+id/fourthEditionButton"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/thirdEditionButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+
+                android:onClick="buttonFourthEditionOnClick"
+                android:text="ACM Newsletter- 4th Edition"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/fifthEditionButton"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/fourthEditionButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/white_to_red_highlight"
+                android:onClick="buttonFifthEditionOnClick"
+                android:text="ACM Newsletter- 5th Edition" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

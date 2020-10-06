@@ -63,6 +63,17 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/forgotPasswordLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:clickable="true"
+        android:text="Forgot Password?"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"/>
+
 
     <Button
         android:id="@+id/loginmain"
@@ -95,16 +106,15 @@
         android:padding="10dp"
         android:textColor="@color/white"
         android:textStyle="bold" />
-    <TextView
-        android:id="@+id/forgotPasswordLink"
-        android:layout_width="wrap_content"
+
+<!--
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:onClick="dummyActivity"
         android:layout_height="wrap_content"
-        android:autoLink="all"
-        android:clickable="true"
-        android:text="Forgot Password?"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_marginTop="15dp"/>
+        android:text="Button" />
+        -->
 
 
 </LinearLayout>
