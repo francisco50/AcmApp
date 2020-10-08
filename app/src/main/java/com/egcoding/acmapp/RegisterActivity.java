@@ -83,7 +83,9 @@ public class RegisterActivity extends AppCompatActivity {
             Log.e("REGISTER", "PARSE PARAMS ERROR");
             e.printStackTrace();
         }
-
+        //Test
+        JSBridge.set(email, "1");
+        //
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST,
                 register_url,
                 params, new Response.Listener<JSONObject>() {
