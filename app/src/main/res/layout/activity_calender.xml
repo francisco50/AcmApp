@@ -7,23 +7,14 @@
     android:background="@color/white"
     tools:context=".CalenderActivity">
 
+    <com.example.calendarapp.CustomCalendarView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/custom_calendar_view"
+        tools:ignore="MissingClass">
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="353dp"
-        android:contextClickable="true"
-        android:dateTextAppearance="@style/TextAppearance.AppCompat.Large"
-        android:focusedMonthDateColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+    </com.example.calendarapp.CustomCalendarView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
