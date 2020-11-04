@@ -1,5 +1,5 @@
 # AcmApp
-Acm mobile application will be used by current UHD ACM members. This mobile application will enable ACM members to recieve information about ACM upcoming events, Newsletters, and will allow members
+Acm mobile application will be used by current UHD ACM members. This mobile application will enable ACM members to access information about ACM upcoming events, Newsletters, and will allow members
 to socilize with one another. 
 
 ## Quick Start
