@@ -8,7 +8,7 @@ To help contribute UHD's ACM application, you should:
 - Download Android Studio
 - Knowledge in Java
 - Knowledge in XML
-- Readey to learn knew things
+- Readey to learn new things
 
 ## Teams
 This project is divided into 2 Teams
