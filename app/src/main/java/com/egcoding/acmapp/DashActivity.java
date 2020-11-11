@@ -1,5 +1,6 @@
 package com.egcoding.acmapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,11 +9,23 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class DashActivity extends AppCompatActivity {
-    CardView profile, calender, labs, newsletter, podcast, events;
+    CardView profile, calendar, labs, newsletter, podcast, events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +33,7 @@ public class DashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dash);
 
         profile = findViewById(R.id.profileCard);
-        calender = findViewById(R.id.calenderCard);
+        calendar = findViewById(R.id.calenderCard);
         labs = findViewById(R.id.labCard);
         newsletter = findViewById(R.id.newsletterCard);
         podcast = findViewById(R.id.podcastCard);
@@ -42,11 +55,20 @@ public class DashActivity extends AppCompatActivity {
             }
         });
 
-        calender.setOnClickListener(new View.OnClickListener() {
+        calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashActivity.this, CalenderActivity.class);
-                startActivity(intent);
+
+                if (DataHolder.canUpdateEventData()) {
+                    DataHolder.setStartRequestTime();
+                    getCalendarData();
+                } else {
+                    Log.d("GET EVENT CALENDAR",
+                            String.format("You need to wait %d miliseconds before getting new events", DataHolder.getEventRequestMinTime()));
+                    Intent intent = new Intent(DashActivity.this, CalendarActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -92,7 +114,56 @@ public class DashActivity extends AppCompatActivity {
 
 
 
+    private void getCalendarData() {
 
+        String register_url = "http://10.0.2.2:3000/api/v1/calendar";
+        //Launch version
+        //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/calendar";
+        //prepare data
+
+        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET,
+                register_url,null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            @NonNull final String status = response.getString("success");
+                            Log.d("Event Data", response.toString());
+                            if (status == "true") {
+                                @NonNull final JSONArray jsonArray = (JSONArray) response.get("data");
+                                DataHolder.clearEvents();
+                                for (int index = 0; index < jsonArray.length(); ++index) {
+                                    JSONObject eventObject = jsonArray.getJSONObject(index);
+                                    Log.d("Event name", eventObject.getString("name"));
+                                    Event newEvent = new Event();
+                                    newEvent.setData(eventObject);
+                                    DataHolder.setEvent(newEvent);
+                                }
+                                DataHolder.printData();
+                                Toast.makeText(DashActivity.this, "Get all events for calendar sucessfully", Toast.LENGTH_SHORT).show();
+
+                                //launch CalendarActivity
+                                Intent intent = new Intent(DashActivity.this, CalendarActivity.class);
+                                startActivity(intent);
+                            } else {
+                                @NonNull final String error = response.getString("error");
+                                Toast.makeText(DashActivity.this, error, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            Log.e("REGISTER", "Could not parse response " + response.toString());
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("REGISTER", error.getMessage());
+                Toast.makeText(DashActivity.this, "Volley error", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //make request by adding it to RequestQueue
+        Volley.newRequestQueue(DashActivity.this).add(jsonRequest);
+    }//---end function---
 
 
 
