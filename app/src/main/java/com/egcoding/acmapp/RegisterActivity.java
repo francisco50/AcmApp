@@ -71,10 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void registerUser(String email, String password) {
 
-        String register_url = "http://10.0.2.2:3000/api/v1/register";
-        //Launch version
-        //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/register";
-        //prepare data
+
         final JSONObject params = new JSONObject();
         try {
             params.put("email", email);
@@ -87,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
         JSBridge.set(email, "1");
         //
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST,
-                register_url,
+                CustomAPI.getRegisterUrl(),
                 params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

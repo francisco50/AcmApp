@@ -63,10 +63,7 @@ public class JSBridge {
             put("25", "4");
             put("30", "3");
         }};
-        String register_url = "http://10.0.2.2:3000/api/v1/setMembership";
-        //Launch version
-        //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/register";
-        //prepare data
+
         final String email = JSBridge.email;
         final String level_id = membershipLevels.get(membershipFee);
         final JSONObject params = new JSONObject();
@@ -79,7 +76,7 @@ public class JSBridge {
         }
 
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST,
-                register_url,
+                CustomAPI.getSetMembershipUrl(),
                 params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

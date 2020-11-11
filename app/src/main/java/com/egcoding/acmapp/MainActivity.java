@@ -62,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
 
         register = findViewById(R.id.register);
 
+        //Use this to test in local backend
+        //CustomAPI.setDevelopmentMode();
+        //Use this when publish the app to the store
+        CustomAPI.setPublishMode();
+
+
         //FEO Introduced this code open the RegisterActivity, this is an onclicklistener to open the Register Class
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
     private void loginUser(String email, String password) {
         showProgressDialog("Logging In");
 
-        String login_url = "https://acm-app-backend.herokuapp.com/api/v1/authenticate";
         //prepare data
         final JSONObject params = new JSONObject();
         try {
@@ -108,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST,
-                login_url,
+                CustomAPI.getLoginUrl(),
                 params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

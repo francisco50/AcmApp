@@ -59,13 +59,8 @@ public class CalendarActivity extends AppCompatActivity {
     //DEBUG: This will be removed
     private void getCalendarData() {
 
-        String register_url = "http://10.0.2.2:3000/api/v1/calendar";
-        //Launch version
-        //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/calendar";
-        //prepare data
-
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET,
-                register_url,null,
+                CustomAPI.getCalendarUrl(),null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
