@@ -45,17 +45,18 @@ public class MainActivity extends AppCompatActivity {
         login=findViewById(R.id.loginmain);// Retrieve widget with name of loginmain of activity_main xml file
        // forgotPassword = findViewById(R.id.forgotPasswordLink);
 
-
-
-
-       // auth = FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() { // whenever login button is clicked
             @Override
             public void onClick(View view) {
                 String txt_email = email.getText().toString(); // grabbing the inputed email and converting to string variable
                 String txt_password = password.getText().toString();
-                    //here we are calling the method and passing through two string values.
-                loginUser(txt_email,txt_password);
+                //here we are calling the method and passing through two string values.
+                // check if above values are empty
+                if(TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){ // checking if txt_email and txt_password is empty or not
+                    Toast.makeText(MainActivity.this, "Username and password cannot be empty", Toast.LENGTH_SHORT).show();
+                } else{
+                    loginUser(txt_email,txt_password);
+                }
             }
         });
 
@@ -74,29 +75,28 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void loginUser(String email, String password) {
-        final ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("Loading");
+    //Dismiss progress dialog before moving to different Activity to avoid leaked memory
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pd.dismiss();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        pd.dismiss();
+    }
+
+    private void showProgressDialog(String msg) {
+        if (pd == null)
+            pd = new ProgressDialog(this);
+        pd.setMessage(msg);
         pd.show();
-        //        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this ,new OnCompleteListener<AuthResult>() {
-        //            @Override
-        //            public void onComplete(@NonNull Task<AuthResult> task) {
-        //                if(task.isSuccessful()){
-        //                    Toast.makeText(RegisterActivity.this, "Registering user successful!", Toast.LENGTH_SHORT).show();
-        //                    startActivity(new Intent(RegisterActivity.this, DashActivity.class));
-        //                    finish();
-        //                } else{
-        //                    Toast.makeText(RegisterActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
-        //                }
-        //            }
-        //        });
-        //register with wordpress
-        //Development version
-        //Use https will cause error
-        //String register_url = "http://10.0.2.2:3000/api/v1/register";
-        //String login_url = "http://10.0.2.2:3000/api/v1/authenticate";
-        //Launch version
-        //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/register";
+    }
+    private void loginUser(String email, String password) {
+        showProgressDialog("Logging In");
+
         String login_url = "https://acm-app-backend.herokuapp.com/api/v1/authenticate";
         //prepare data
         final JSONObject params = new JSONObject();
@@ -120,9 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("LOGIN", status);
                     if (status.equals("true")) {
                         Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-
                         startActivity(new Intent(MainActivity.this, DashActivity.class));
-                        finish();
                     } else {
                         @NonNull final String error = response.getString("error");
                         Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
@@ -142,12 +140,4 @@ public class MainActivity extends AppCompatActivity {
         //make request by adding it to RequestQueue
         Volley.newRequestQueue(MainActivity.this).add(jsonRequest);
     }//---end function---
-
-/*
-    public void dummyActivity(View view) {
-        Intent intent = new Intent(MainActivity.this, DashActivity.class);
-        startActivity(intent);
-    }
-
- */
 }
