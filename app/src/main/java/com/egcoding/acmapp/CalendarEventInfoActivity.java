@@ -36,8 +36,8 @@ public class CalendarEventInfoActivity extends AppCompatActivity {
     private void listShow(String chosenDate) {
         list = new ArrayList<CustomListAdapter>();
         for (Event event: DataHolder.getEvents()) {
-            Log.d("event Date", event.startDate);
             if (chosenDate.equals(event.startDate)) {
+                Log.d("event Date", String.format("StartDate: %s  Title: %s", event.startDate, event.name));
                 String eventTime = String.format("%s to %s", event.startTime, event.endTime);
                 list.add(new CustomListAdapter(event.name, eventTime, event.description, event.location));
             }

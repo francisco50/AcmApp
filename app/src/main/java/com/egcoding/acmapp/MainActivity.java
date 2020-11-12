@@ -85,13 +85,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        pd.dismiss();
+        if (pd != null)
+            pd.dismiss();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        pd.dismiss();
+        if (pd != null)
+            pd.dismiss();
     }
 
     private void showProgressDialog(String msg) {
@@ -129,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         @NonNull final String error = response.getString("error");
                         Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
+                        if (pd != null)
+                            pd.dismiss();
                     }
                 } catch (JSONException e) {
                     Log.e("LOGIN", "Could not parse response " + response);

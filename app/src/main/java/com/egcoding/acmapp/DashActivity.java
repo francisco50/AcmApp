@@ -59,6 +59,8 @@ public class DashActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //time limite to request new events is 1 minute
+                //can be change using DataHolder.setEventRequestMinTime(miliseconds)
                 if (DataHolder.canUpdateEventData()) {
                     DataHolder.setStartRequestTime();
                     getCalendarData();
@@ -116,13 +118,10 @@ public class DashActivity extends AppCompatActivity {
 
     private void getCalendarData() {
 
-        String register_url = "http://10.0.2.2:3000/api/v1/calendar";
-        //Launch version
-        //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/calendar";
-        //prepare data
+
 
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET,
-                register_url,null,
+                CustomAPI.getCalendarUrl(),null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
