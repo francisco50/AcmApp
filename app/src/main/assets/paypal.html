@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
+</head>
+
+<body>
+<script
+        src="https://www.paypal.com/sdk/js?client-id=AWsTQzP85h-5SRyBRn3mLeoY5nqpWUCbRsbdRV455_nvnzj5VB3id-BULDsY4nPS5qMg1jMDh1lFHz_q"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+  </script>
+
+
+<select class="" name="" id="membership">
+    <option value="15">ACM Member(1 semester - 6 months) - $15</option>
+    <option value="25">ACM Member(2 semester - 1 year) - $25</option>
+    <option value="30">ACM Alumni(2 semester - 1 year) - $30</option>
+</select>
+    <button type="button" name="button" id="paynow" onclick="payMethod()">Pay Now</button>
+<div id="paypal-button-container"></div>
+<script>
+		function payMethod() {
+			var membership = document.getElementById("membership")
+			console.log(membership.value)
+			var order = {
+				createOrder: function(data, actions) {
+					return actions.order.create({
+						purchase_units: [{
+							amount: {
+								value: membership.value
+							}
+						}]
+					});
+				},
+				onApprove: function(data, actions) {
+				    //show  is paying
+				    console.log("Data" ,data)
+				    return actions.order.capture().then(function(details) {
+				        console.log("Value", membership.value);
+				        console.log("Details", details)
+				        //show paying successfully
+				        window.JSBridge.startRegister(membership.value);
+				    });
+				}
+			}
+			var paypalContainer = document.getElementById("paypal-button-container")
+			paypalContainer.innerHTML = ""
+			paypal.Buttons(order).render('#paypal-button-container')
+		}
+	</script>
+</body>

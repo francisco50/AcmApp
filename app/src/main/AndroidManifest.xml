@@ -23,9 +23,18 @@
         </activity>
 
         <activity
-            android:name=".CalenderActivity"
-            android:label="CALENDER"
+            android:name=".CalendarActivity"
+            android:label="CALENDAR"
             android:parentActivityName=".DashActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".CalendarEventInfoActivity"
+            android:label="CALENDAR EVENT"
+            android:parentActivityName=".CalendarActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -94,6 +103,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:name=".PaymentActivity" />
     </application>
 
 </manifest>

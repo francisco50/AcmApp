@@ -71,10 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void registerUser(String email, String password) {
 
-        String register_url = "http://10.0.2.2:3000/api/v1/register";
-        //Launch version
-        //String register_url = "https://acm-app-backend.herokuapp.com/api/v1/register";
-        //prepare data
+
         final JSONObject params = new JSONObject();
         try {
             params.put("email", email);
@@ -83,8 +80,11 @@ public class RegisterActivity extends AppCompatActivity {
             Log.e("REGISTER", "PARSE PARAMS ERROR");
             e.printStackTrace();
         }
+        //Test
+        JSBridge.set(email, "1");
+        //
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST,
-                register_url,
+                CustomAPI.getRegisterUrl(),
                 params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -94,7 +94,8 @@ public class RegisterActivity extends AppCompatActivity {
                     if (status == "true") {
 
                         Toast.makeText(RegisterActivity.this, "User is created successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this, DashActivity.class));
+                        Intent intent = new Intent(RegisterActivity.this, PaymentActivity.class);
+                        startActivity(intent);
                         finish();
                     } else {
                         @NonNull final String error = response.getString("error");
